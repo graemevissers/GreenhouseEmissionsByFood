@@ -10,8 +10,8 @@ my_server <- function(input, output, session) {
     # Note filename is dependent on what user selects
     list(src = filename,
          contentType = "image/jpeg",
-         width = 220,
-         height = 170)
+         width = 760, # picture width
+         height = 380) # picture height
   }, deleteFile = FALSE)
   
   # fwwlu image
@@ -20,8 +20,8 @@ my_server <- function(input, output, session) {
     # Note filename is dependent on what user selects
     list(src = filename,
          contentType = "image/jpg",
-         width = 220,
-         height = 170)
+         width = 760, # picture width
+         height = 380) #picture height
   }, deleteFile = FALSE)
   
   #----------Server for first page, meal output-----------------------------
