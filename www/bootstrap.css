@@ -69,7 +69,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #F1F0F0;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -86,6 +86,10 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 2rem;
+}
+
+h1 {
+  color: #2a7824;
 }
 
 p {
@@ -374,11 +378,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 h1, .h1 {
-  font-size: 2.5rem;
+  font-size: 5rem;
 }
 
 h2, .h2 {
-  font-size: 2rem;
+  font-size: 8rem;
 }
 
 h3, .h3 {
@@ -4923,6 +4927,9 @@ input[type="button"].btn-block {
   padding-left: 0;
 }
 
+.navbar {
+  background-color: #AFD1A2;
+}
 .navbar-expand .navbar-nav {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -5117,7 +5124,7 @@ input[type="button"].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: #7CBF63;
   border-bottom: 2px solid #333;
 }
 
@@ -6414,7 +6421,7 @@ a.close.disabled {
   z-index: 1040;
   width: 100vw;
   height: 100vh;
-  background-color: #000;
+  background-color: #7CBF63;
 }
 
 .modal-backdrop.fade {

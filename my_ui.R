@@ -9,9 +9,13 @@ source("analysis.R")
 library("shinythemes")
 
 #--------------Title Page------------------------------------------------------
-
 intro <- tabPanel(
   h3("home"),
+  h2("How much of an impact does our diet have on the enviornment?")
+)
+
+about <- tabPanel(
+  h3("About"),
   h4("As greenhouse gas emissions are on the rise and global temperatures with it,
      consumers are more and more likely to make decisions based on their carbon footprint. 
      Food production and agriculture contributes to a large share of these emissions,
@@ -36,7 +40,7 @@ intro <- tabPanel(
      by the food and agriculture sector becomes staggering. Superfluous
      amounts of greenhouse gases are generated due to massive food waste,
      excessive consumption of livestock, and the conversion of
-     non-agricultural lands to agricultural land[5] The extremely high
+     non-agricultural lands to agricultural land The extremely high
      consumption of red-meat in particular is a keystone issue. There are
      excessive inefficiencies throughout the chain of production due to
      red-meat consumption."),
@@ -61,10 +65,6 @@ intro <- tabPanel(
      a powerful method of promoting adoption by the general population.
      Simplicity and instructional guidance are key methods of changing
      population behavior."),
-  
-  h3("Research Questions"),
-  h4("1.) What is the status of our current food consumption with regards to environmental impact?"),
-  h4("2.) What is the optimal diet to reduce greenhouse gas emissions?"),
   
   h2("We used two datasets Freshwater Withdrawals/Land Usage and Greenhouse Gas Emissions."),
   h3("Definitions:"), # Definitions
@@ -126,7 +126,7 @@ page_four <- tabPanel(
   h3("Land and Water Usage"),
   sidebarLayout(
     sidebarPanel(
-      checkboxGroupInput("product", "Choose food items:",
+      checkboxGroupInput("product", h3("Choose food items:"),
                          choiceNames = productChoices,
                          choiceValues = productChoices,
                          selected = c("Poultry Meat", "Apple")
@@ -134,6 +134,7 @@ page_four <- tabPanel(
     ),
     mainPanel(
       plotOutput("water"),
+      hr(),
       plotOutput("land")
     )
   )
@@ -148,8 +149,8 @@ recipe_input <- tabPanel(
   ),
   sidebarPanel(
     h3(textOutput("user_ghg")),
-    actionButton("calculate", "Calculate GHG Emissions"),
-    actionButton("add", "Add Ingredient")
+    actionButton("calculate", h3("Calculate GHG Emissions")),
+    actionButton("add", h3("Add Ingredient"))
   )
 )
 
@@ -173,8 +174,9 @@ one_ingredient <- fluidRow(
 
 my_ui <- navbarPage(
   theme = "bootstrap.css",
-  "Greenhouse Emissions by Food",
+  h1("Greenhouse Emissions by Food"),
   intro,
+  about,
   emissions_by_meal,
   page_four,
   recipe_input
