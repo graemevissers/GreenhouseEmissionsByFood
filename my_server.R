@@ -4,6 +4,26 @@ library("dplyr")
 
 my_server <- function(input, output, session) {
   
+  # ghge image
+  output$ghge_image <- renderImage({
+    filename <- "images/GHGE.jpeg" # sets filename to send
+    # Note filename is dependent on what user selects
+    list(src = filename,
+         contentType = "image/jpeg",
+         width = 220,
+         height = 170)
+  }, deleteFile = FALSE)
+  
+  # fwwlu image
+  output$fwwlu_image <- renderImage({
+    filename <- "images/fwwlu.jpg" # sets filename to send
+    # Note filename is dependent on what user selects
+    list(src = filename,
+         contentType = "image/jpg",
+         width = 220,
+         height = 170)
+  }, deleteFile = FALSE)
+  
   #----------Server for first page, meal output-----------------------------
   
   # Send a pre-rendered image, and don't delete the image after sending it
@@ -104,4 +124,5 @@ my_server <- function(input, output, session) {
       do.call(shiny::tagList,rows)
     })
   })
+  
 }

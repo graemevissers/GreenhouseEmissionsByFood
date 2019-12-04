@@ -6,11 +6,12 @@
 
 source("data_wrangling.R")
 source("analysis.R")
+library("shinythemes")
 
 #--------------Title Page------------------------------------------------------
 
 intro <- tabPanel(
-  h1("_Greenhouse Gas Emissions By Food... What's your ''food'' print?"),
+  h3("home"),
   h4("As greenhouse gas emissions are on the rise and global temperatures with it,
      consumers are more and more likely to make decisions based on their carbon footprint. 
      Food production and agriculture contributes to a large share of these emissions,
@@ -81,7 +82,8 @@ intro <- tabPanel(
      and receipt inputs. The author of this Dataset was Stephen Clune.
      He receieved by collating and analysing 369 LCA studies
      including 168 food types and 1718 GWP values."),
-# add image of Greenhouse Gas Emissions
+  # picture of Greenhouse Gas Emissions
+  imageOutput("ghge_image"),
  
 
   h4("Freshwater Withdrawals = Refer to total water
@@ -93,12 +95,15 @@ intro <- tabPanel(
   h3("Freshwater Withdrawals/Land Usage Dataset(Small) provided us with
      graphs on the Freshwater withdrawals and Land Usage. 
      The authors of this Dataset were J.Poore and T.Nemecek."),
-# add image of Freshwater withdrawals and Land Usage
+  # picture of Freshwater withdrawals and Land Usage
+  imageOutput("fwwlu_image"),
+
+
 )
 
 #--------First Page--------------------------------------
 emissions_by_meal <- tabPanel(
-  "Emissions by Meal",
+  h3("Emissions by Meal"),
   titlePanel("Emissions by Meal"),
   sidebarLayout(
     sidebarPanel(
@@ -116,27 +121,9 @@ emissions_by_meal <- tabPanel(
   )
 )
 
-#Define content for the Second page
-graphs <- tabPanel(
-  "Graphical Representations", # label for the tab in the navbar
-  titlePanel("Graphical Representations"),
-  sidebarLayout(
-    sidebarPanel(
-      selectInput(
-        inputId = "graph_select",
-        label = h3("Graph Choice"),
-        choices = list("GHG vs Product")
-      )
-    ),
-    mainPanel(
-      plotOutput("plot") # plot
-    )
-  )
-)
-
 #Define content for the third page
 page_four <- tabPanel(
-  "Land and Water Usage",
+  h3("Land and Water Usage"),
   sidebarLayout(
     sidebarPanel(
       checkboxGroupInput("product", "Choose food items:",
@@ -154,7 +141,7 @@ page_four <- tabPanel(
 
 # Define the fourth page
 recipe_input <- tabPanel(
-  "Input your recipe", 
+  h3("Input your recipe"), 
   mainPanel(
     h1(id = "recipeheader", "Your Recipe"),
     uiOutput("newIngred")
@@ -185,10 +172,10 @@ one_ingredient <- fluidRow(
 )
 
 my_ui <- navbarPage(
+  theme = "bootstrap.css",
   "Greenhouse Emissions by Food",
   intro,
   emissions_by_meal,
-  graphs,
   page_four,
   recipe_input
 )
